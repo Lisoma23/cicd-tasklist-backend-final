@@ -43,9 +43,9 @@ pipeline {
 
         stage('SonarQube analysis & Quality Gate') {
             steps {
-                withSonarQubeEnv('sonar-louisan') {
+                withSonarQubeEnv('sonarqube-server-1') {
                     withCredentials([
-                        string(credentialsId: 'faustine-sonar-token-front', variable: 'SONAR_TOKEN')
+                        string(credentialsId: 'sofia-sonar-token', variable: 'SONAR_TOKEN')
                     ]) {
                         sh '''
                             npx --yes sonar-scanner \
