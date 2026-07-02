@@ -1,7 +1,7 @@
-import { execSync } from "child_process";
-import path from "path";
-import { fileURLToPath } from "url";
-import { createRequire } from "module";
+import { execSync } from "node:child_process";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { createRequire } from "node:module";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
