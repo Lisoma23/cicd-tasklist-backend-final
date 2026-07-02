@@ -13,10 +13,6 @@ pipeline {
         buildDiscarder(logRotator(numToKeepStr: '10'))
     }
 
-    triggers {
-        pollSCM('H/2 * * * *')
-    }
-
     stages {
         stage('Install dependencies') {
             steps {
@@ -51,7 +47,7 @@ pipeline {
                             npx --yes sonar-scanner \
                             -Dsonar.projectKey=$SONAR_PROJECT_KEY \
                             -Dsonar.sources=src \
-                            -Dsonar.test.inclusions=*/.test.ts \
+                            -Dsonar.test.inclusions=**/*.test.ts \
                             -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info \
                             -Dsonar.sourceEncoding=UTF-8 \
                             -Dsonar.host.url=$SONAR_HOST_URL \
