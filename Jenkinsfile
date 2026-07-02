@@ -45,7 +45,7 @@ pipeline {
             steps {
                 withSonarQubeEnv('sonarqube-server-1') {
                     withCredentials([
-                        string(credentialsId: 'sofiahzm-sonar-token', variable: 'SONAR_TOKEN')
+                        string(credentialsId: 'sofia-sonar-token', variable: 'SONAR_TOKEN')
                     ]) {
                         sh '''
                             npx --yes sonar-scanner \
